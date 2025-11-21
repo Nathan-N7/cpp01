@@ -3,6 +3,9 @@
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
 }
 
+Bureaucrat::~Bureaucrat() {
+}
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     if (this != &other) {
         this->_grade = other.getGrade();
