@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
+
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -35,4 +36,16 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low!";
+}
+
+void Bureaucrat::incrementGrade() {
+    if (_grade - 1 < 1)
+        throw GradeTooHighException();
+    _grade--;
+}
+
+void Bureaucrat::decrementGrade() {
+    if (_grade - 1 > 150)
+        throw GradeTooHighException();
+    _grade++;
 }
