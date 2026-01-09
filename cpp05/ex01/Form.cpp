@@ -50,6 +50,16 @@ int Form::getExecuteGrade() const {
     return (_execute_grade);
 }
 
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return ("Grade too high!");
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return ("Grade too low!");
+}
+
 std::ostream &operator<<(std::ostream &os, const Form &f) {
 	os << "Name: " << f.getName() << " isSigned: " << f.getIsSigned() << " SignGrade: " << f.getSignGrade() << " ExecuteGrade: " << f.getExecuteGrade() << std::endl;
 	return (os);
