@@ -1,5 +1,8 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
+
+}
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
 
 }
@@ -48,4 +51,9 @@ void Bureaucrat::decrementGrade() {
     if (_grade - 1 > 150)
         throw GradeTooHighException();
     _grade++;
+}
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &b) {
+    os << "Name: " << b.getName() << "Grade: " << b.getGrade() << std::endl;
+    return (os);
 }

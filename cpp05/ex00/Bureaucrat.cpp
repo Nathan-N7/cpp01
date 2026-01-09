@@ -52,3 +52,8 @@ void Bureaucrat::decrementGrade() {
         throw GradeTooHighException();
     _grade++;
 }
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &b) {
+    os << "Name: " << b.getName() << "Grade: " << b.getGrade() << std::endl;
+    return (os);
+}
